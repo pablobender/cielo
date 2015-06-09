@@ -93,7 +93,7 @@ module Cielo
           xml.tid "#{cielo_tid}"
         end
         if target == :after
-          xml.valor "#{valor}" if BigDecimal.new(valor) > 0
+          xml.valor "#{valor}" if BigDecimal.new(valor.nil? ? 0 : valor) > 0
         end
       end
       @connection.make_request! message
