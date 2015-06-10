@@ -2,8 +2,14 @@ require 'simplecov'
 SimpleCov.start do
   add_filter "/spec/"
 end
-require 'cielo'
-require 'fakeweb'
-require 'watir-webdriver'
 
-FakeWeb.allow_net_connect = false
+require 'webmock'
+require 'watir-webdriver'
+require 'cielo'
+
+# inhibits real network connections and fail on unstubed requests
+WebMock.disable_net_connect!
+
+RSpec.configure do |config|
+  config.include WebMock::API
+end

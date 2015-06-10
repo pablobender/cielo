@@ -13,6 +13,6 @@ group :development do
   gem "bundler"
   gem "jeweler"
   gem "rspec"
-  gem "fakeweb"
+  gem "webmock"
   gem "simplecov"
 end
